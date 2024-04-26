@@ -13,11 +13,11 @@ public:
     int SetN1(int na);
     int SetN2(int nb);
     int SetN3(int nc);
-    int Max();
-    int Min();
-    double Prom();
-    int CantP();
-    int CantI();
+    int Max(int na, int nb, int nc);
+    int Min(int na, int nb, int nc);
+    float Prom(int na, int nb, int nc);
+    int CantP(int na, int nb, int nc);
+    int CantI(int na, int nb, int nc);
 
 };
 
@@ -25,7 +25,7 @@ CNumber::CNumber(int na, int nb, int nc) {
     n1 = SetN1(na);
     n2 = SetN2(nb);
     n3 = SetN3(nc);
-}
+};
 
 int CNumber::SetN1(int na) {
     n1 = na;
@@ -42,7 +42,7 @@ int CNumber::SetN3(int nc) {
     return n3;
 }
 
-int CNumber::Max() {
+int CNumber::Max(int na, int nb, int nc) {
     int m = n1;
     if (n2 > m) {
         m = n2;
@@ -53,7 +53,7 @@ int CNumber::Max() {
     return m;
 }
 
-int CNumber::Min() {
+int CNumber::Min(int na, int nb, int nc) {
     int mi = n1;
     if (n2 < mi) {
         mi = n2;
@@ -64,12 +64,12 @@ int CNumber::Min() {
     return mi;
 }
 
-double CNumber::Prom() {
-    double calcu = (n1 + n2 + n3) / 3.0;
+float CNumber::Prom(int na, int nb, int nc) {
+    float calcu = (n1 + n2 + n3) / 3;
     return calcu;
 }
 
-int CNumber::CantP() {
+int CNumber::CantP(int na, int nb, int nc) {
     int par = 0;
 
     if (n1 % 2 == 0) {
@@ -84,7 +84,7 @@ int CNumber::CantP() {
     return par;
 }
 
-int CNumber::CantI() {
+int CNumber::CantI(int na, int nb, int nc) {
     int impar = 0;
 
     if (n1 % 2 != 0) {
@@ -111,11 +111,11 @@ int main() {
     cout<<"ingrese un numero: ";
     cin>>c;
     CNumber number(a, b, c);
-    cout << "MAX:  " << number.Max() << endl;
-    cout << "MIN:  " << number.Min() << endl;
-    cout << "Promedio:  " << number.Prom() << endl;
-    cout << "Par:  " << number.CantP() << endl;
-    cout << "Impar:  " << number.CantI() << endl;
+    cout << "MAX:  " << number.Max(a, b, c) << endl;
+    cout << "MIN:  " << number.Min(a, b, c) << endl;
+    cout << "Promedio:  " << number.Prom(a, b, c) << endl;
+    cout << "Par:  " << number.CantP(a, b, c) << endl;
+    cout << "Impar:  " << number.CantI(a, b, c) << endl;
 
     return 0;
 }
